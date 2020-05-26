@@ -1,0 +1,26 @@
+#!/bin/bash -x
+
+
+mydir="$1"
+
+if [[ ! ${1} ]]; then
+   echo "No argument passsed"
+   exit 1
+fi 
+
+cur_directory="$(pwd)"
+dest_directory="${cur_directory}"/"${mydir}"
+
+if  [[ ! -d $dest_directory ]]; then
+    if mkdir "$dest_directory"; then
+      echo "'$dest_directory' Created"
+    else
+      echo "cloudn't create a directory '$dest_directory'"
+      echo 1
+    fi
+else
+   echo "Directory already present..hence deleting it..."
+   rm -rf "$dest_directory"
+fi
+
+#command to print the list of files in the driectory is ls -A "dir1" | wc -l

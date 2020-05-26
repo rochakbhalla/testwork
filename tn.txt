@@ -1,0 +1,27 @@
+#!/bin/bash  #IMP == Use this "-x" for whole file debugging
+
+#VVIMP === To just do for few lines use "set -x" at start  and "set +x" at end between these lines i.e. line 10 set -x & line 20 set +20, will only allow the script to debug between these lines only.
+
+#Reading the input
+read -p "Your note here -> " note
+
+#get the date in date variable
+date="$(date)"
+
+#Read the argument and pass this variable for the dynamic changing
+if [[ ! "$1" ]]; then
+	echo "Missing argument"
+	exit 1
+fi 
+topic="$1"
+#Make a filename
+filename="${HOME}/${topic}notes.txt"
+
+#Execute the script
+echo "$date: $note" >> "$filename"
+echo "The '$note' saved to this filepath -> $filename"
+cat "$filename"
+
+#ls -ls | grep "files"
+
+#df
