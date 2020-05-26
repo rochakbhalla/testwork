@@ -1,0 +1,18 @@
+#!/bin/bash
+
+if [[ $# -ne 2 ]];  then 
+  echo "Argumenents passed are lesst than 2"
+	exit 1
+else
+   first_arg = ${#1}
+   second_arg =${#2}
+	if [[ $first_arg -gt $second_arg ]]; then
+		echo "$1 is longest."
+	elif [[ $first_arg -eq $second_arg ]]; then
+		echo "length is equal"
+	else
+		echo "$2 is longest."
+	fi
+fi
+exit 0
+ 
